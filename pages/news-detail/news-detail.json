@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "mp-html": "mp-html"
+  },
+  "navigationStyle": "default",
+  "navigationBarTextStyle":"black",
+  "navigationBarBackgroundColor": "#87CEFA",
+  "navigationBarTitleText": "新闻详情"
+}

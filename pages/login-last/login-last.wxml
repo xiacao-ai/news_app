@@ -1,0 +1,41 @@
+<view class="login-wrapper">
+  <!-- 背景图 -->
+  <image src="/images/log-bacimg.jpg" class="bg-image" mode="aspectFill" />
+
+  <!-- 页面左上角取消按钮 -->
+  <view class="page-cancel" bindtap="cancelLogin">取消</view>
+
+  <!-- 遮罩区域 -->
+  <view class="overlay">
+    <checkbox-group bindchange="onCheckboxChange" class="agreement-box">
+      <label class="checkbox-label">
+        <checkbox class="round-checkbox" value="agree" checked="{{isChecked}}" />
+        <text>我已阅读并同意</text>
+      </label>
+      <text class="link" bindtap="goToAgreement">《用户协议》</text>
+      <text class="link" bindtap="goToPrivacy">《隐私政策》</text>
+    </checkbox-group>
+
+    <button
+      class="login-btn"
+      bindtap="handleLogin"
+      disabled="{{!isChecked}}"
+      style="background-color: {{isChecked ? '#87CEFA' : '#ccc'}}"
+    >
+      微信一键登录
+    </button>
+  </view>
+
+  <!-- 登录弹窗 -->
+  <!-- 弹出框 -->
+<view wx:if="{{showPopup}}" class="popup-mask">
+  <view class="popup-content" animation="{{popupAnim}}">
+    <view class="popup-cancel" bindtap="cancelLogin">✕</view>
+    <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <image class="avatar" src="{{avatarUrl || '/images/default-avatar.png'}}" />
+    </button>
+    <input class="nickname-input" type="nickname" placeholder="请输入昵称" bindinput="onInputNickName" />
+    <button class="confirm-btn" bindtap="confirmLogin">确认登录</button>
+  </view>
+</view>
+</view>

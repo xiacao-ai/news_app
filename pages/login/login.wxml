@@ -1,0 +1,26 @@
+<view class="login-wrapper">
+  <!-- 背景图 -->
+  <image src="/images/log-bacimg.jpg" class="bg-image" mode="aspectFill" />
+
+  <!-- 遮罩区域 -->
+  <view class="overlay">
+    <checkbox-group bindchange="onCheckboxChange" class="agreement-box">
+      <label class="checkbox-label">
+        <checkbox class="round-checkbox" value="agree" checked="{{isChecked}}" />
+        <text>我已阅读并同意</text>
+      </label>
+      <text class="link" bindtap="goToAgreement">《用户协议》</text>
+      <text class="link" bindtap="goToPrivacy">《隐私政策》</text>
+    </checkbox-group>
+
+    <button
+      open-type="getUserInfo"
+      class="login-btn"
+      bindtap="handleLogin"
+      disabled="{{!isChecked}}"
+      style="background-color: {{isChecked ? '#87CEFA' : '#ccc'}}"
+    >
+      微信一键登录
+    </button>
+  </view>
+</view>

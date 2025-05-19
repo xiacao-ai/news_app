@@ -1,0 +1,59 @@
+<!-- <scroll-view scroll-y="true" enable-flex class="news-tab-scroll" style="height: 100%;">
+  <block wx:for="{{newsList}}" wx:key="id">
+    <view class="news-card" bindtap="onCardTap" bindlongtap="onCardLongTap" data-id="{{item.id}}">
+      <image class="cover" src="{{item.image}}" mode="aspectFill" />
+      <view class="info">
+        <view class="title">{{item.title}}</view>
+        <view class="meta">
+          <text>{{item.source}}</text>
+          <text>{{item.publishTime}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+
+
+
+
+ -->
+
+
+
+ <scroll-view scroll-y="true" enable-flex class="news-tab-scroll" style="height: 100%;">
+  <!-- ✅ 轮播图也放在 scroll-view 内 -->
+  <view class="news-swiper-container">
+  <swiper
+    class="news-swiper"
+    indicator-dots
+    autoplay
+    circular
+    interval="4000"
+    duration="500" 
+
+  >
+    <swiper-item wx:for="{{swiperList}}" wx:key="id">
+      <view class="swiper-item" bindtap="onSwiperTap" data-id="{{item.id}}">
+        <image class="swiper-image" src="{{item.image}}" mode="aspectFill" />
+        <view class="swiper-title">{{item.title}}</view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+
+
+  <!-- ✅ 下面是正常的新闻列表 -->
+  <block wx:for="{{newsList}}" wx:key="id">
+    <view class="news-card" bindtap="onCardTap" bindlongtap="onCardLongTap" data-id="{{item.id}}">
+      <image class="cover" src="{{item.image}}" mode="aspectFill" />
+      <view class="info">
+        <view class="title">{{item.title}}</view>
+        <view class="meta">
+          <text class="source">{{item.source}}</text>
+          <text class="time">{{item.publishTime}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+

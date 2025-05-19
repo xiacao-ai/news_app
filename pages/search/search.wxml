@@ -1,0 +1,76 @@
+<view class="search-page">
+  <!-- 整页背景图 -->
+  <image class="bg-image" src="/images/search.jpg" mode="aspectFill" />
+
+  <!-- 自定义导航栏 -->
+  <view class="custom-nav">
+    <!-- <icon type="arrow-left" size="20" color="#333" bindtap="onBack" class="back-icon" /> -->
+    <image src="/images/back.png" mode="aspectFit" class="img" bindtap="onBack"/>
+    <view class="nav-title">搜索</view>
+  </view>
+
+  <!-- 页面内容容器 -->
+  <view class="content">
+    <!-- 顶部搜索区域 -->
+    <view class="search-area">
+      <view class="search-box">
+        <icon type="search" size="18" color="#999" class="search-icon" />
+        <input
+          class="search-input"
+          placeholder="请输入关键词"
+          confirm-type="search"
+          bindconfirm="onSearch"
+          bindinput="onInput"
+          value="{{keyword}}"
+        />
+      </view>
+      <button class="search-btn" bindtap="onSearch">搜索</button>
+    </view>
+
+    <!-- 热搜榜 -->
+    <view class="section" wx:if="{{hotList.length}}">
+      <view class="section-title">热搜榜</view>
+      <view class="hot-list">
+        <block wx:for="{{hotList}}" wx:key="index">
+          <view class="hot-item" bindtap="onTagTap" data-key="{{item}}">
+            <view class="hot-rank {{index < 3 ? 'top-three' : ''}}">{{index + 1}}</view>
+            <view class="hot-keyword">{{item}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+
+    <!-- 推荐关键词 -->
+    <view class="section" wx:if="{{recommendList.length}}">
+      <view class="section-title">推荐</view>
+      <view class="tag-list">
+        <block wx:for="{{recommendList}}" wx:key="index">
+          <view class="tag" bindtap="onTagTap" data-key="{{item}}">{{item}}</view>
+        </block>
+      </view>
+    </view>
+
+    <!-- 搜索历史 -->
+    <view class="section" wx:if="{{historyList.length}}">
+      <view class="section-title">搜索历史</view>
+      <view class="tag-list">
+        <block wx:for="{{historyList}}" wx:key="index">
+          <view class="tag" bindtap="onTagTap" data-key="{{item}}">{{item}}</view>
+        </block>
+      </view>
+      <view class="clear-history" bindtap="clearHistory">清除历史</view>
+    </view>
+
+    <!-- 搜索结果 -->
+    <view class="section" wx:if="{{resultList.length}}">
+      <view class="section-title">搜索结果</view>
+      <block wx:for="{{resultList}}" wx:key="id">
+        <view class="result-item">
+          <view class="title">{{item.title}}</view>
+          <view class="desc">{{item.desc}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

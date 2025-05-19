@@ -1,0 +1,45 @@
+<!-- <view class="news-detail">
+  <view class="title">{{news.title}}</view>
+  <view class="meta">
+    <text class="source">{{news.source}}</text>
+    <text class="time">{{news.publishTime}}</text>
+  </view>
+
+  <block wx:for="{{news.content}}" wx:key="index">
+    <view wx:if="{{item.type === 'text'}}" class="paragraph">
+      {{item.value}}
+    </view>
+    <image wx:if="{{item.type === 'image'}}" class="media" src="{{item.value}}" mode="widthFix" />
+    <video wx:if="{{item.type === 'video'}}" class="media" src="{{item.value}}" controls></video>
+  </block>
+</view> -->
+
+<!-- <view class="container">
+  <view class="title">{{title}}</view>
+  <view class="meta">{{source}} ｜ {{date}}</view>
+  <image class="cover" src="{{image}}" mode="widthFix" wx:if="{{image}}"></image>
+  <rich-text class="content" nodes="{{content}}"></rich-text>
+</view> -->
+
+<!-- news-detail.wxml -->
+<!-- <view class="title">{{title}}</view>
+<view class="meta">
+  <text>{{author_name}}</text> <text>{{date}}</text>
+</view>
+<view class="content">
+  <mp-html content="{{content}}" />
+</view> -->
+
+<!-- pages/news-detail/news-detail.wxml -->
+<!-- <view class="news-content">
+  <mp-html content="{{htmlContent}}" />
+</view> -->
+
+<view class="news-detail">
+  <mp-html content="{{htmlContent}}" />
+</view>
+
+
+
+
+

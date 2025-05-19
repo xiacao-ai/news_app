@@ -1,0 +1,136 @@
+ .news-swiper-container {
+  width: 100%;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+
+.news-swiper {
+  width: 95%; /* 缩小宽度 */
+  height: 300rpx;
+  margin: 0 auto; /* 居中显示 */
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.05); */
+
+}
+
+.swiper-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.swiper-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 16rpx;
+}
+
+.swiper-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16rpx;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: bold;
+  border-bottom-left-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+  text-align: center;       
+  display: flex;           
+  align-items: center;
+  justify-content: center;  
+}
+
+/* 正常列表渲染 */
+ /* .news-card {
+  display: flex;
+  padding: 20rpx;
+  margin: 20rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+} */
+
+.news-card {
+  display: flex;
+  padding: 20rpx;
+  margin: 20rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  align-items: center; /* ✅ 让图片垂直居中对齐 */
+}
+
+.cover {
+  width: 220rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  flex-shrink: 0;
+  object-fit: cover; /* ✅ 确保图片填满自身容器 */
+}
+
+
+.news-card:active {
+  transform: scale(0.98);  /* 按下时轻微缩放 */
+  box-shadow: 0 6rpx 12rpx rgba(0, 0, 0, 0.1);  /* 按下时增强阴影效果 */
+}
+
+.cover {
+  width: 220rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  flex-shrink: 0;
+}
+
+.info {
+  flex: 1;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  max-height: 3.2em; /* 最多两行 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 24rpx;
+  color: #888;
+  margin-top: 20rpx;
+  gap: 20rpx; /* 可选，增加间距 */
+}
+
+/* 允许来源自动换行 */
+.source {
+  flex: 1; /* 占据最大空间 */
+  white-space: normal; 
+  word-break: break-all;
+  /* padding-bottom: 10rpx; */
+  /* margin-top: 10rpx; */
+}
+
+/* 时间固定不换行 */
+.time {
+  white-space: nowrap;
+  flex-shrink: 0; /* 不压缩时间 */
+  /* margin-top: 10rpx; */
+  /* padding-bottom: 10rpx; */
+
+}
+
+

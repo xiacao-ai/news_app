@@ -1,0 +1,74 @@
+<!-- <scroll-view class="tab" enable-flex scroll-x scroll-with-animation scroll-into-view="{{scrollTarget}}">
+  <block wx:for="{{tabs}}" wx:key="index">
+    <view id="tab{{index}}" class="{{ztitem === index ? 'active' : ''}}" data-ztitem="{{index}}" bindtap="changezt">
+      {{item.name}}
+    </view>
+  </block>
+</scroll-view> -->
+
+<!-- swiper 区域 -->
+<!-- <swiper current="{{ztitem}}" bindchange="contentchange" style="flex: 1; ">
+  <block wx:for="{{tabs}}" wx:key="index">
+    <swiper-item style="height: auto;">
+      <news-tab category="{{item.category}}" />
+    </swiper-item>
+  </block>
+</swiper> -->
+
+
+<!-- <scroll-view
+  class="tab"
+  enable-flex
+  scroll-x
+  scroll-with-animation
+  scroll-left="{{scrollLeft}}"
+>
+  <block wx:for="{{tabs}}" wx:key="index">
+    <view id="tab{{index}}" class="{{ztitem === index ? 'active' : ''}}" data-ztitem="{{index}}" bindtap="changezt">
+      {{item.name}}
+    </view>
+  </block>
+</scroll-view>
+
+<swiper current="{{ztitem}}" bindchange="contentchange" style="flex: 1; ">
+  <block wx:for="{{tabs}}" wx:key="index">
+    <swiper-item style="height: auto;">
+      <news-tab category="{{item.category}}" />
+    </swiper-item>
+  </block>
+</swiper> -->
+
+<!-- 自定义导航栏 -->
+<view class="custom-nav">
+  <view class="logo">
+    <image src="/images/logo.png" mode="aspectFit"/>
+  </view>
+  <view class="search-box" bindtap="goToSearch">
+    <icon type="search" size="18" color="#999" />
+    <text class="search-text">搜索新闻</text>
+  </view>
+</view>
+
+<scroll-view
+  class="tab"
+  enable-flex
+  scroll-x
+  scroll-with-animation
+  style="width: 100%; overflow: hidden;"
+  scroll-left="{{scrollLeft}}"
+>
+  <block wx:for="{{tabs}}" wx:key="index">
+    <view id="tab{{index}}" class="{{ztitem === index ? 'active' : ''}}" data-ztitem="{{index}}" bindtap="changezt">
+      {{item.name}}
+    </view>
+  </block>
+</scroll-view>
+
+<swiper current="{{ztitem}}" bindchange="contentchange" style="flex: 1; height: 100%;">
+  <block wx:for="{{tabs}}" wx:key="index">
+    <swiper-item style="height: 100%;">
+      <news-tab category="{{item.category}}" />
+    </swiper-item>
+  </block>
+</swiper>
+

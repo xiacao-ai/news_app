@@ -1,0 +1,54 @@
+<view class="settings-page">
+  <!-- 背景图或色块 -->
+  <image class="bg-image" src="/images/settings-bg.jpg" mode="aspectFill" />
+
+  <!-- 顶部标题 -->
+  <view class="custom-nav">
+    <view class="nav-title">设置中心</view>
+  </view>
+
+  <!-- 设置列表 -->
+  <view class="settings-list">
+    <!-- 用户设置 -->
+    <view class="setting-group">
+      <view class="setting-item" bindtap="onEditProfile">
+        <icon type="person" size="20" color="#666" />
+        <text>修改资料</text>
+        <icon type="arrow" size="16" color="#ccc" />
+      </view>
+    </view>
+
+    <!-- 应用设置 -->
+    <view class="setting-group">
+      <view class="setting-item" bindtap="onClearCache">
+        <icon type="delete" size="20" color="#666" />
+        <text>清除缓存</text>
+        <icon type="arrow" size="16" color="#ccc" />
+      </view>
+      <view class="setting-item" bindtap="onNotificationSettings">
+        <icon type="message" size="20" color="#666" />
+        <text>通知设置</text>
+        <icon type="arrow" size="16" color="#ccc" />
+      </view>
+    </view>
+
+    <!-- 关于我们 -->
+    <view class="setting-group">
+      <view class="setting-item" bindtap="onAbout">
+        <icon type="info" size="20" color="#666" />
+        <text>关于我们</text>
+        <icon type="arrow" size="16" color="#ccc" />
+      </view>
+      <view class="setting-item" bindtap="onViewAgreement">
+        <icon type="text" size="20" color="#666" />
+        <text>用户协议与隐私政策</text>
+        <icon type="arrow" size="16" color="#ccc" />
+      </view>
+    </view>
+
+    <!-- 退出登录（仅登录后显示） -->
+    <view wx:if="{{userInfo}}">
+      <view class="logout-btn" bindtap="onLogout">退出登录</view>
+    </view>
+  </view>
+</view>
