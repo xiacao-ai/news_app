@@ -1,10 +1,15 @@
-<view class="container">
+<!-- 自定义导航栏 -->
+<view class="custom-nav {{isDarkMode ? 'dark-nav' : ''}}" style="padding-top: {{statusBarHeight}}px">
+  <view class="nav-title {{isDarkMode ? 'dark-title' : ''}}">个人中心</view>
+</view>
+
+<view class="container {{isDarkMode ? 'dark-mode' : ''}}">
   <!-- 卡片 -->
-  <view class="card">
+  <view class="card {{isDarkMode ? 'dark-card' : ''}}">
     <!-- 个人信息 -->
-    <view class="user-info" bindtap="onLogin">
+    <view class="user-info" bindtap="goToLogin">
       <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" />
-      <text class="username">{{userInfo.nickName || '点击登录 '}}</text>
+      <text class="username">{{userInfo.nickName || '点击登录'}}</text>
     </view>
     <!-- 功能版块 -->
     <view class="menu-section">
@@ -26,24 +31,32 @@
   <!-- 列表 -->
   <view class="liebiao">
     <view class="liebiao-item">
-      <image class="icon" src="/images/night.png" />
-      <text>夜间模式</text>
-      <image class="img" src="/images/arrow-right.png" />
+      <image class="icon" src="{{isDarkMode ? '/images/daytime.png' : '/images/night.png'}}" />
+      <text>{{isDarkMode ? '日间模式' : '夜间模式'}}</text>
+      <switch checked="{{isDarkMode}}" bindchange="toggleDarkMode" color="#87CEFA" class="switch-style"/>
     </view>
     <view class="liebiao-item" bindtap="goToSettings">
       <image class="icon" src="/images/settings.png" />
       <text>设置中心</text>
       <image class="img" src="/images/arrow-right.png" />
     </view>
-    <view class="liebiao-item">
+    <view class="liebiao-item" bindtap="goToFeedback">
       <image class="icon" src="/images/feedback.png" />
       <text>意见反馈</text>
       <image class="img" src="/images/arrow-right.png" />
     </view>
-    <view class="liebiao-item">
+    <view class="liebiao-item" bindtap="goToAbout">
       <image class="icon" src="/images/about-us.png" />
       <text>关于我们</text>
       <image class="img" src="/images/arrow-right.png" />
     </view>
   </view>
+
+  <!-- 退出登录按钮 -->
+  <view class="logout-btn" bindtap="handleLogout" wx:if="{{userInfo}}">
+    退出登录
+  </view>
 </view>
+
+<!-- 自定义底部导航栏 -->
+<custom-tab-bar selected="1" isDarkMode="{{isDarkMode}}" />

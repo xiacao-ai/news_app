@@ -38,37 +38,90 @@
   </block>
 </swiper> -->
 
-<!-- 自定义导航栏 -->
+<!-- 顶部导航栏 -->
 <view class="custom-nav">
   <view class="logo">
-    <image src="/images/logo.png" mode="aspectFit"/>
+    <image src="/images/logo.png" mode="heightFit"/>
   </view>
   <view class="search-box" bindtap="goToSearch">
-    <icon type="search" size="18" color="#999" />
+    <icon type="search" size="14" color="#999" />
     <text class="search-text">搜索新闻</text>
   </view>
 </view>
 
-<scroll-view
+<!-- 分类标签栏 -->
+<scroll-view 
   class="tab"
-  enable-flex
   scroll-x
   scroll-with-animation
-  style="width: 100%; overflow: hidden;"
   scroll-left="{{scrollLeft}}"
+  enhanced
+  show-scrollbar="{{false}}"
+  fast-deceleration
 >
   <block wx:for="{{tabs}}" wx:key="index">
-    <view id="tab{{index}}" class="{{ztitem === index ? 'active' : ''}}" data-ztitem="{{index}}" bindtap="changezt">
+    <view 
+      id="tab{{index}}" 
+      class="{{ztitem === index ? 'active' : ''}}" 
+      data-ztitem="{{index}}" 
+      bindtap="changezt"
+    >
       {{item.name}}
     </view>
   </block>
 </scroll-view>
 
-<swiper current="{{ztitem}}" bindchange="contentchange" style="flex: 1; height: 100%;">
-  <block wx:for="{{tabs}}" wx:key="index">
-    <swiper-item style="height: 100%;">
-      <news-tab category="{{item.category}}" />
-    </swiper-item>
-  </block>
-</swiper>
+<!-- 内容区域 -->
+<view class="content-area">
+  <swiper 
+    current="{{ztitem}}" 
+    bindchange="contentchange"
+    duration="300"
+  >
+    <block wx:for="{{tabs}}" wx:key="index">
+      <swiper-item>
+        <scroll-view 
+          class="news-list"
+          scroll-y
+          bindscrolltolower="loadMore"
+          refresher-enabled="{{true}}"
+          refresher-triggered="{{isRefreshing}}"
+          bindrefresherrefresh="onRefresh"
+          enhanced
+          fast-deceleration
+          show-scrollbar="{{false}}"
+        >
+          <view 
+            wx:for="{{newsList}}" 
+            wx:key="id" 
+            class="news-item" 
+            bindtap="goToDetail" 
+            data-id="{{item.id}}"
+          >
+            <view class="news-info">
+              <text class="news-title">{{item.title}}</text>
+              <view class="news-meta">
+                <text class="news-source">{{item.source}}</text>
+                <text class="news-time">{{item.publishTime}}</text>
+              </view>
+            </view>
+            <image 
+              class="news-image" 
+              src="{{item.imageUrl}}" 
+              mode="aspectFill"
+              lazy-load
+            />
+          </view>
+          
+          <view class="loading-more" wx:if="{{isLoading}}">
+            <text>加载中...</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<!-- 自定义底部导航栏 -->
+<custom-tab-bar selected="0" isDarkMode="{{isDarkMode}}" />
 

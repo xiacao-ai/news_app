@@ -1,7 +1,13 @@
+<!-- 自定义导航栏 -->
+<view class="custom-nav" style="padding-top: {{statusBarHeight}}px">
+  <view class="nav-title">登录</view>
+</view>
+
+<!-- 登录页面主体 -->
 <view class="login-wrapper">
   <!-- 背景图 -->
   <image src="/images/log-bacimg.jpg" class="bg-image" mode="aspectFill" />
-
+  
   <!-- 遮罩区域 -->
   <view class="overlay">
     <checkbox-group bindchange="onCheckboxChange" class="agreement-box">
@@ -12,7 +18,7 @@
       <text class="link" bindtap="goToAgreement">《用户协议》</text>
       <text class="link" bindtap="goToPrivacy">《隐私政策》</text>
     </checkbox-group>
-
+    
     <button
       open-type="getUserInfo"
       class="login-btn"

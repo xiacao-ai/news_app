@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "news-tab":"/components/news-tab/news-tab"
+    "news-tab": "/components/news-tab/news-tab",
+    "custom-tab-bar": "/components/custom-tab-bar/custom-tab-bar"
   },
   "navigationBarTitleText": "今日新闻"
 }

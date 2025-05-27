@@ -69,3 +69,93 @@
   color: #fff;
   font-size: 30rpx;
 }
+
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-title {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.container {
+  padding-top: 120px;
+  min-height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 16px;
+}
+
+.app-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.login-box {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.desc-text {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 40px;
+}
+
+.login-btn {
+  width: 100% !important;
+  height: 44px;
+  background: #07c160;
+  color: #fff;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: none;
+}
+
+.login-btn::after {
+  border: none;
+}
+
+.wechat-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
